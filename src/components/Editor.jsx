@@ -14,7 +14,7 @@ export default function Editor({ username }) {
   const [showAI, setShowAI] = useState(false);
   const userId = localStorage.getItem('userId');
 
-  const socket = useSocket('http://localhost:3001', {
+  const socket = useSocket('https://realtime-collab-comments-backend.onrender.com', {
     query: { username },
   });
 
@@ -43,7 +43,7 @@ export default function Editor({ username }) {
     socket.on('receive-changes', handleReceiveChanges);
 
     // Fetch comments for the shared document
-    axios.get('http://localhost:3001/comments/shared-doc')
+    axios.get('https://realtime-collab-comments-backend.onrender.com/comments/shared-doc')
       .then(response => setComments(response.data))
       .catch(err => console.error('Failed to fetch comments:', err));
 
@@ -111,7 +111,7 @@ export default function Editor({ username }) {
     };
 
     try {
-      await axios.post('http://localhost:3001/comments', comment);
+      await axios.post('https://realtime-collab-comments-backend.onrender.com/comments', comment);
       setComments([...comments, comment]);
       
       // Update conversation history with user info
