@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:3001';
+const API_BASE = 'https://realtime-collab-comments-backend.onrender.com';
 
 export const aiService = {
   // Get smart reply suggestions for a conversation
