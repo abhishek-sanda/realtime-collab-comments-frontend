@@ -20,7 +20,7 @@ export function useP2PCall(username, userId, roomId = 'shared-doc') {
 
   // Initialize signaling connection
   useEffect(() => {
-    const newSocket = io('http://localhost:3002/ws/call', {
+    const newSocket = io('https://realtime-collab-comments-backend.onrender.com/ws/call', {
       query: { username, userId }
     });
 
