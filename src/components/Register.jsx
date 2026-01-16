@@ -32,7 +32,7 @@ export default function Register({ onRegister } = {}) {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3001/auth/register', {
+      const res = await axios.post('https://realtime-collab-comments-backend.onrender.com/auth/register', {
         name: form.name,
         email: form.email,
         password: form.password
