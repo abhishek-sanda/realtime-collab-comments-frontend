@@ -10,7 +10,7 @@ export default function CommentSidebar() {
 
   useEffect(() => {
     const fetchComments = async () => {
-      const res = await axios.get('http://localhost:3001/comments/shared-doc');
+      const res = await axios.get('https://realtime-collab-comments-backend.onrender.com/comments/shared-doc');
       setComments(res.data);
     };
     fetchComments();
@@ -22,8 +22,8 @@ export default function CommentSidebar() {
   const handleVote = async (commentId, voteType) => {
     try {
       const endpoint = voteType === 'up' 
-        ? `http://localhost:3001/comments/${commentId}/upvote`
-        : `http://localhost:3001/comments/${commentId}/downvote`;
+        ? `https://realtime-collab-comments-backend.onrender.com/comments/${commentId}/upvote`
+        : `https://realtime-collab-comments-backend.onrender.com/${commentId}/downvote`;
 
       const res = await axios.post(endpoint, { userId });
       
@@ -46,7 +46,7 @@ export default function CommentSidebar() {
     }
 
     try {
-      const res = await axios.put(`http://localhost:3001/comments/${commentId}`, {
+      const res = await axios.put(`https://realtime-collab-comments-backend.onrender.com/comments/${commentId}`, {
         text: editText,
         userId: userName
       });
@@ -64,7 +64,7 @@ export default function CommentSidebar() {
     }
 
     try {
-      await axios.delete(`http://localhost:3001/comments/${commentId}`, {
+      await axios.delete(`https://realtime-collab-comments-backend.onrender.com/comments/${commentId}`, {
         data: { userId: userName }
       });
       setComments(comments.filter(c => c._id !== commentId));
