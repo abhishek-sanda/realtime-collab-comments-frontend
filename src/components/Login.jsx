@@ -16,7 +16,7 @@ export default function Login({ onLogin }) {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3001/auth/login', {
+      const res = await axios.post('https://realtime-collab-comments-backend.onrender.com/auth/login', {
         email,
         password
       });
